@@ -29,6 +29,7 @@ export default {
   },
   methods: {
     async fetchUserData () {
+      //used CORS proxy to get around CORS error
       let url =  'https://cors-anywhere.herokuapp.com/https://frontiercodingtests.azurewebsites.net/api/accounts/getall';
       try {
         const response = await fetch(url)
