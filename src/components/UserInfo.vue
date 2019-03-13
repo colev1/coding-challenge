@@ -15,7 +15,7 @@
               <h3>Active</h3>
             </div>
             <div class="account-container active-account">
-              <ul class="account-data-list" v-for="user in activeUsers" v-bind:key="user.id">
+              <ul class="account-data-list" v-for="user in activeUsers" v-bind:key="user.Id">
                 <li><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
                 <li><label>Email:</label>{{user.Email}}</li>
                 <li><label>Phone Number:</label>{{user.PhoneNumber}}</li>
@@ -29,7 +29,7 @@
               <h3>Overdue</h3>
             </div>
             <div class="account-container overdue-account" >
-              <ul class="account-data-list" v-for="user in overdueUsers" v-bind:key="user.id">
+              <ul class="account-data-list" v-for="user in overdueUsers" v-bind:key="user.Id">
                 <li><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
                 <li><label>Email:</label>{{user.Email}}</li>
                 <li><label>Phone Number:</label>{{user.PhoneNumber}}</li>
@@ -43,12 +43,11 @@
               <h3>Inactive</h3>
             </div>
             <div class="account-container inactive-account">
-              <ul class="account-data-list" v-for="user in inactiveUsers" v-bind:key="user.id">
+              <ul class="account-data-list" v-for="user in inactiveUsers" v-bind:key="user.Id">
                 <li><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
                 <li><label>Email:</label>{{user.Email}}</li>
                 <li><label>Phone Number:</label>{{user.PhoneNumber}}</li>
                 <li><label>Amount Due:</label>{{user.AmountDue}}</li>
-                <li><label>Due Date:</label>{{user.DueDate}}</li>
               </ul>
             </div>
           </div>
