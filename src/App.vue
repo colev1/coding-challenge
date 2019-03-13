@@ -38,7 +38,8 @@ export default {
 <style>
 #app {
     height: 100%;
-    width: 100%;
+    width: 100vw;
+    margin-top: -4px;
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 </style>
