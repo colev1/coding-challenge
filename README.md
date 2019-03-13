@@ -1,30 +1,7 @@
 # Frontier Coding Challenge 
 ## Display Sorted Account Info
 
-## Project setup
-```
-npm install
-```
+### Description
+Coding assignment was to create a application that displays user information and sorts it based on the status of the user; active, inactive, or overdue given a frontend tempalte.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
