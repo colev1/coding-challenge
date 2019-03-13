@@ -66,7 +66,7 @@ export default {
     activeUsers: Array,
     inactiveUsers: Array,
     overdueUsers: Array,
-    date: String
+    date: Number
   }
 }
 </script>
@@ -104,6 +104,7 @@ export default {
     display: block;
     font-size: 1.5em;
     color:#006643;
+    margin-bottom: 10px;
     font-weight: normal;
   }
   main {
@@ -132,7 +133,8 @@ export default {
     grid-row-start: 3;
   }
   .account-column {
-    grid-template-rows: 2em repeat(2, 10em);
+    grid-template-rows: 3em repeat(2, 10em);
+    overflow: scroll;
   }
   .content-title-container {
     justify-self: center;
@@ -141,6 +143,8 @@ export default {
   }
   #overdue-account-container-title > h3{
     color: #B22222;
+    margin-bottom: 10px;
+
   }
   #inactive-account-container-title > h3 {
     color:#808080;
