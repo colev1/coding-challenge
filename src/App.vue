@@ -1,21 +1,23 @@
 <template>
   <div id="app">
+    <UserInfo v-if="users" :users="users"/>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import UserInfo from './components/UserInfo.vue'
 
 export default {
   name: 'app',
   components: {
+    UserInfo
   },
   data() {
     return {
       users: []
     }
   },
-  created() {
+  beforeMount() {
     this.fetchUserData()
   },
   methods: {
@@ -35,11 +37,8 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    height: 100%;
+    width: 100%;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 </style>
