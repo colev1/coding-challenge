@@ -9,6 +9,7 @@
 
 <script>
 import UserInfo from './components/UserInfo.vue'
+import cleanUserInfo from './helpers/cleanUserInfo.js'
 
 export default {
   name: 'app',
@@ -32,7 +33,8 @@ export default {
       try {
         const response = await fetch(url)
         const result = await response.json()
-        result.forEach(user => {
+        let allUsers = cleanUserInfo(result)
+        allUsers.forEach(user => {
           switch(user.AccountStatusId) {
             case 0: 
               this.activeUsers.push(user)

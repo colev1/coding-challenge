@@ -15,7 +15,7 @@
               <h3>Active</h3>
             </div>
             <div class="account-container active-account">
-              <ul class="account-data-list" v-for="user in activeUsers" v-bind:key="user.id">
+              <ul class="account-data-list" v-for="user in activeUsers" v-bind:key="user.Id">
                 <li><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
                 <li><label>Email:</label>{{user.Email}}</li>
                 <li><label>Phone Number:</label>{{user.PhoneNumber}}</li>
@@ -29,7 +29,7 @@
               <h3>Overdue</h3>
             </div>
             <div class="account-container overdue-account" >
-              <ul class="account-data-list" v-for="user in overdueUsers" v-bind:key="user.id">
+              <ul class="account-data-list" v-for="user in overdueUsers" v-bind:key="user.Id">
                 <li><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
                 <li><label>Email:</label>{{user.Email}}</li>
                 <li><label>Phone Number:</label>{{user.PhoneNumber}}</li>
@@ -43,12 +43,11 @@
               <h3>Inactive</h3>
             </div>
             <div class="account-container inactive-account">
-              <ul class="account-data-list" v-for="user in inactiveUsers" v-bind:key="user.id">
+              <ul class="account-data-list" v-for="user in inactiveUsers" v-bind:key="user.Id">
                 <li><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
                 <li><label>Email:</label>{{user.Email}}</li>
                 <li><label>Phone Number:</label>{{user.PhoneNumber}}</li>
                 <li><label>Amount Due:</label>{{user.AmountDue}}</li>
-                <li><label>Due Date:</label>{{user.DueDate}}</li>
               </ul>
             </div>
           </div>
@@ -67,7 +66,7 @@ export default {
     activeUsers: Array,
     inactiveUsers: Array,
     overdueUsers: Array,
-    date: String
+    date: Number
   }
 }
 </script>
@@ -105,6 +104,7 @@ export default {
     display: block;
     font-size: 1.5em;
     color:#006643;
+    margin-bottom: 10px;
     font-weight: normal;
   }
   main {
@@ -133,7 +133,8 @@ export default {
     grid-row-start: 3;
   }
   .account-column {
-    grid-template-rows: 2em repeat(2, 10em);
+    grid-template-rows: 3em repeat(2, 10em);
+    overflow: scroll;
   }
   .content-title-container {
     justify-self: center;
@@ -142,6 +143,8 @@ export default {
   }
   #overdue-account-container-title > h3{
     color: #B22222;
+    margin-bottom: 10px;
+
   }
   #inactive-account-container-title > h3 {
     color:#808080;
