@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <UserInfo v-if="users" :users="users"/>
+    <UserInfo :activeUsers="activeUsers" 
+    :inactiveUsers="inactiveUsers" 
+    :overdueUsers="overdueUsers" 
+    :date="date"/>
   </div>
 </template>
 
@@ -14,11 +17,14 @@ export default {
   },
   data() {
     return {
-      users: []
+      activeUsers: [],
+      inactiveUsers: [],
+      overdueUsers: []
     }
   },
   beforeMount() {
     this.fetchUserData()
+    this.date = new Date().getFullYear()
   },
   methods: {
     async fetchUserData () {
@@ -26,7 +32,19 @@ export default {
       try {
         const response = await fetch(url)
         const result = await response.json()
-        this.users = result
+        result.forEach(user => {
+          switch(user.AccountStatusId) {
+            case 0: 
+              this.activeUsers.push(user)
+              break;
+            case 1:
+              this.inactiveUsers.push(user)
+              break;
+            case 2: 
+              this.overdueUsers.push(user)
+              break;
+          }
+        })
       } catch(err) {
         console.log(err)
       }
@@ -38,7 +56,8 @@ export default {
 <style>
 #app {
     height: 100%;
-    width: 100%;
+    width: 100vw;
+    margin-top: -4px;
     font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 </style>
