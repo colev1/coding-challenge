@@ -24,11 +24,10 @@ export default {
       try {
         const response = await fetch(url)
         const result = await response.json()
-        console.log(result)
+        this.users = result
       } catch(err) {
         console.log(err)
       }
-
     }
   }
 }
