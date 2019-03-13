@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <UserInfo v-if="users" :users="users"/>
+    <UserInfo v-if="users" :users="users" :date="date"/>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   },
   beforeMount() {
     this.fetchUserData()
+    this.date = new Date().getFullYear()
   },
   methods: {
     async fetchUserData () {

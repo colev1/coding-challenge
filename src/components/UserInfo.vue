@@ -55,8 +55,7 @@
         </section>
       </main>
       <footer class="grid">
-        <!-- <p class="copy">&copy;<script>document.write(new Date().getFullYear())</script></p> -->
-        <p class="copy"> 2019 </p>
+        <p class="copy"> {{date}} </p>
       </footer>
     </article>
 </template>
@@ -70,12 +69,13 @@ export default {
     }
   },
   props: {
-    users: Array
+    users: Array,
+    date: String
   }
 }
 </script>
 
-<style scoped>
+<style>
  template {
   height: 100%;
   width: 100%;
