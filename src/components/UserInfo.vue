@@ -15,12 +15,12 @@
               <h3>Active</h3>
             </div>
             <div class="account-container active-account">
-              <ul class="account-data-list">
-                <!-- <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                <li><label>Email:</label>{{Email}}</li>
-                <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                <li><label>Amount Due:</label>{{AmountDue}}</li>
-                <li><label>Due Date:</label>{{DueDate}}</li> -->
+              <ul class="account-data-list" v-for="user in users" v-bind:key="user.id">
+                <li v-if="user.AccountStatusId === 0"><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
+                 <li v-if="user.AccountStatusId === 0"><label>Email:</label>{{user.Email}}</li>
+                <li v-if="user.AccountStatusId === 0"><label>Phone Number:</label>{{user.PhoneNumber}}</li>
+                <li v-if="user.AccountStatusId === 0"><label>Amount Due:</label>{{user.AmountDue}}</li>
+                <li v-if="user.AccountStatusId === 0"><label>Due Date:</label>{{user.DueDate}}</li>
               </ul>
             </div>     
           </section>
@@ -28,13 +28,13 @@
             <div class="account-container-title" id="overdue-account-container-title">
               <h3>Overdue</h3>
             </div>
-            <div class="account-container overdue-account">
-              <ul class="account-data-list">
-                <!-- <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                <li><label>Email:</label>{{Email}}</li>
-                <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                <li><label>Amount Due:</label>{{AmountDue}}</li>
-                <li><label>Due Date:</label>{{DueDate}}</li> -->
+            <div class="account-container overdue-account" >
+              <ul class="account-data-list" v-for="user in users" v-bind:key="user.id">
+                <li v-if="user.AccountStatusId === 2"><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
+                <li v-if="user.AccountStatusId === 2"><label>Email:</label>{{user.Email}}</li>
+                <li v-if="user.AccountStatusId === 2"><label>Phone Number:</label>{{user.PhoneNumber}}</li>
+                <li v-if="user.AccountStatusId === 2"><label>Amount Due:</label>{{user.AmountDue}}</li>
+                <li v-if="user.AccountStatusId === 2"><label>Due Date:</label>{{user.DueDate}}</li>
               </ul>
             </div>
           </section>
@@ -43,12 +43,12 @@
               <h3>Inactive</h3>
             </div>
             <div class="account-container inactive-account">
-              <ul class="account-data-list">
-                <!-- <li><label>Name:</label>{{LastName}}, {{FirstName}}</li>
-                <li><label>Email:</label>{{Email}}</li>
-                <li><label>Phone Number:</label>{{PhoneNumber}}</li>
-                <li><label>Amount Due:</label>{{AmountDue}}</li>
-                <li><label>Due Date:</label>{{DueDate}}</li> -->
+              <ul class="account-data-list" v-for="user in users" v-bind:key="user.id">
+                <li v-if="user.AccountStatusId === 1"><label>Name:</label>{{user.LastName}}, {{user.FirstName}}</li>
+                <li v-if="user.AccountStatusId === 1"><label>Email:</label>{{user.Email}}</li>
+                <li v-if="user.AccountStatusId === 1"><label>Phone Number:</label>{{user.PhoneNumber}}</li>
+                <li v-if="user.AccountStatusId === 1"><label>Amount Due:</label>{{user.AmountDue}}</li>
+                <li v-if="user.AccountStatusId === 1"><label>Due Date:</label>{{user.DueDate}}</li>
               </ul>
             </div>
           </div>
@@ -63,9 +63,14 @@
 <script>
 export default {
   name: 'UserInfo',
+  data() {
+    return {
+      activeUsers: []
+    }
+  },
   props: {
     users: Array
-  },
+  }
 }
 </script>
 
